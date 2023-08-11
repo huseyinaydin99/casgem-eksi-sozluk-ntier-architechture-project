@@ -1,0 +1,70 @@
+﻿@model EksiSozluk.PresentationLayer.Areas.Admin.Models.RegisterViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Ekşi Sözlük Admin Giriş </title>
+    
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <div>
+            <section>
+                <form method="post">
+                    <hr />
+                    <h3>Hesap Oluştur</h3>
+                    <hr />
+                    <div>
+                        <input type="text" class="form-control" name="Name" placeholder="Adınız" required="" />
+                        <br />
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" name="Surname" placeholder="Soyadınız" required="" />
+                        <br />
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" name="Username" placeholder="Kullanıcı Adı" required="" />
+                        <br />
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" name="Email" placeholder="E-posta Adresi" required="" />
+                        <br />
+                    </div>
+                    <div>
+                        <input type="password" class="form-control" name="Password" placeholder="Şifre" required="" />
+                        <br />
+                    </div>
+                    <div>
+                        <input type="password" class="form-control" name="ConfirmPassword" placeholder="Şifre Tekrar" required="" />
+                        <br />
+                    </div>
+                    <div>
+                        <input type="submit" class="btn btn-primary" value="Kayıt Ol" />
+                        <br />
+                    </div>
+
+                    <div>
+                        <p>
+                            Hatırladın mı?
+                            <br />
+                            <a href="/Admin/Login/Index" class="btn btn-primary">Giriş Sayfası</a>
+                        </p>
+                        <br />
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
