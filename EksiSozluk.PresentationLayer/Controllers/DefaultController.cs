@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EksiSozluk.PresentationLayer.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EksiSozluk.PresentationLayer.Controllers
 {
@@ -6,7 +7,9 @@ namespace EksiSozluk.PresentationLayer.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            string user = HttpContext.Session.GetString("username");
+
+            return View(new SessionViewModel { UserName = user});
         }
     }
 }

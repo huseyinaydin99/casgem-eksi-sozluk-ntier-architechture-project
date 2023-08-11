@@ -1,5 +1,6 @@
 ﻿using EksiSozluk.EntityLayer.Concrete;
 using EksiSozluk.PresentationLayer.Areas.Admin.Models;
+using EksiSozluk.PresentationLayer.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol.Plugins;
@@ -17,8 +18,17 @@ namespace EksiSozluk.PresentationLayer.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.username = TempData["code"];
-            return View();
+            //ViewBag.username = TempData["code"];
+            string user =ViewBag.username;
+            if (user != null)
+            {
+                HttpContext.Session.SetString("username", user);
+                return View(new SessionViewModel { UserName = user });
+            }
+            else
+            {
+                return View(new SessionViewModel { UserName = "" });
+            }
         }
 
         [HttpPost]

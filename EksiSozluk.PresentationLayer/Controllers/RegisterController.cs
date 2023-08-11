@@ -22,8 +22,16 @@ namespace EksiSozluk.PresentationLayer.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-
-            return View();
+            string user = ViewBag.username;
+            if (user != null)
+            {
+                HttpContext.Session.SetString("username", user);
+                return View(new SessionViewModel { UserName = user });
+            }
+            else
+            {
+                return View(new SessionViewModel { UserName = "" });
+            }
         }
 
         [HttpPost]
@@ -43,7 +51,7 @@ namespace EksiSozluk.PresentationLayer.Controllers
                     TempData["Username"] = appUser.UserName;
                     TempData["code"] = appUser.ConfirmCode;
                     //TempData["User"] = appUser;
-
+                    ViewBag.username = model.Username;
                     return Redirect("/MailConfirm/Index");
                 }
                 else
